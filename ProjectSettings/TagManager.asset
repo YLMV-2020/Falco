@@ -10,6 +10,7 @@ TagManager:
   - Laser
   - Portal
   - Ground
+  - Zone
   layers:
   - Default
   - TransparentFX

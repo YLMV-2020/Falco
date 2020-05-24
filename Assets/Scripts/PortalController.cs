@@ -26,6 +26,15 @@ public class PortalController : MonoBehaviour
         return this.portalInstance[0];
     }
 
+    public void RemoveAllPortal()
+    {
+        while (this.portalInstance.Count > 0)
+        { 
+            GameObject oldestPortal = this.portalInstance[0];
+            this.portalInstance.Remove(oldestPortal);
+            Destroy(oldestPortal.gameObject);
+        }
+    }
     
 
 }
