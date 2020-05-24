@@ -24,6 +24,8 @@ public class Weapon : MonoBehaviour
         {
             m_spriteRenderer.flipX = !PlayerController.sharedInstance.flip;
         }
+
+        if (transform.position.y < -5.0f) Destroy(gameObject); 
     }
 
     public void RemoveWeapon()

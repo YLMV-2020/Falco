@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 Jump();
             }
 
-            if (Input.GetMouseButtonDown(0) && m_rigidbody.velocity == Vector2.zero) 
+            if (Input.GetMouseButtonDown(0) && m_rigidbody.velocity == Vector2.zero && weapon != null)  
             { 
                 StartCoroutine("Shoot");
             }
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         this.m_animator.SetBool("isShoot", true);
 
         Vector3 posPlayer = transform.position;
-        GameObject shoot = weapon.CompareTag("Portal") ? ShootController.sharedInstance.at(1) : ShootController.sharedInstance.at(0);
+        GameObject shoot = weapon.CompareTag("Portal") ? ShootController.sharedInstance.at(0) : ShootController.sharedInstance.at(1);
 
         float absolute = flip ? 1 : -1;
         
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
-        Destroy(gameObject);
+        Debug.Log("Muero");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -4,58 +4,49 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform ground;
-    public float speed;
-    private bool movingr = false;
-    public LayerMask groundLayer;
-    public int points = 0;
+    public static EnemyController sharedInstance;
 
-    void Update()
+    public int cantidadMax;
+
+    public List<Enemy> allTheEnemies = new List<Enemy>();
+    public List<Enemy> currentEnemies = new List<Enemy>();
+
+    void Awake()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-        RaycastHit2D groundinfo = Physics2D.Raycast(ground.position, Vector2.down, 1f, groundLayer);
-        RaycastHit2D groundinfo1 = Physics2D.Raycast(ground.position, Vector2.right, 0.1f, groundLayer);
+        sharedInstance = this;
+    }
 
-        if (groundinfo.collider == false || groundinfo1 == true)
+    private void Update()
+    {
+        if (currentEnemies.Count == 0)
         {
-            if (movingr == true)
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingr = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingr = true;
-            }
+            UpdateLevel.sharedInstance.end.m_box.isTrigger = true;
+            UpdateLevel.sharedInstance.end.walk.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void GenerateEnemy()
     {
-        if (collision.tag == "Player")
-        {
-            float yOffset = 0.76031f;
-            if (transform.position.y + yOffset < collision.transform.position.y)
-            {
-                Destroy(gameObject);
-                GameManager.sharedInstance.CollectPoints(this.points);
-            }
-        }
-
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-            GameManager.sharedInstance.CollectPoints(this.points);
-        }
-
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            Destroy(gameObject);
-            GameManager.sharedInstance.CollectPoints(this.points);
-        }
-
+        int index = Random.Range(0, allTheEnemies.Count - 1);
+        float x = Random.Range(UpdateLevel.sharedInstance.begin.transform.position.x, UpdateLevel.sharedInstance.end.transform.position.x);
+        Debug.Log("Okay");
+        Enemy currentEnemy = (Enemy)Instantiate(allTheEnemies[index], new Vector3(x, 3.0f, 0.0f), allTheEnemies[index].transform.rotation);
+        currentEnemy.transform.SetParent(this.transform, false);
+        currentEnemies.Add(currentEnemy);
     }
 
+    public void RemoveEnemy(Enemy enemy)
+    {
+        currentEnemies.Remove(enemy);
+    }
+
+    public void GenerateEnemies()
+    {
+        int index = Random.Range(1, cantidadMax);
+
+        for (int i = 0; i < index; i++)
+        {
+            GenerateEnemy();
+        }
+    }
 }

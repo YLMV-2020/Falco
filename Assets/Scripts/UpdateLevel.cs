@@ -13,13 +13,4 @@ public class UpdateLevel : MonoBehaviour
     {
         sharedInstance = this;
     }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            end.m_box.isTrigger = true;
-            end.walk.SetActive(false);
-        }
-    }
 }

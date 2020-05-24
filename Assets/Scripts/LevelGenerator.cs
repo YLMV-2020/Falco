@@ -17,7 +17,7 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         GenerateIntialBlocks();
-        InstanceWall();
+        
     }
 
     public void AddLevelBlock()
@@ -73,6 +73,8 @@ public class LevelGenerator : MonoBehaviour
             AddLevelBlock();
 
         InstanceWall();
+        EnemyController.sharedInstance.GenerateEnemies();
+        WeaponController.sharedInstance.GenerateWeapons();
     }
 
     public void GenerateIntialBlocks()
@@ -80,5 +82,8 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < 4; i++)
             AddLevelBlock();
 
+        InstanceWall();
+        EnemyController.sharedInstance.GenerateEnemies();
+        WeaponController.sharedInstance.GenerateWeapons();
     }
 }
