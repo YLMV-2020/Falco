@@ -39,8 +39,10 @@ public class Weapon : MonoBehaviour
             weapon.SetActive(true);
             weapon.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2);
 
+            Vector2 direction = PlayerController.sharedInstance.flip ? Vector2.left : Vector2.right;
+
             component.m_rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            component.m_rigidbody.AddForce(Vector2.up * 2 + Vector2.left * 2, ForceMode2D.Impulse);
+            component.m_rigidbody.AddForce(Vector2.up * 2 + direction * 2, ForceMode2D.Impulse);
         }
     }
 
