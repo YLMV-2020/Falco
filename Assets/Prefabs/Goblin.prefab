@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5939497295136441127}
   - component: {fileID: 5939497295136441176}
   - component: {fileID: 5939497295136441124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5939497295259300029}
   - component: {fileID: 5939497295259300028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5939497296367595733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CheckGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}

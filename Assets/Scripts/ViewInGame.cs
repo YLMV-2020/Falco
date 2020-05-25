@@ -10,7 +10,7 @@ public class ViewInGame : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.sharedInstance.currentGameState == GameState.inGame)
+        if (GameManager.sharedInstance.currentGameState == GameState.inGame || GameManager.sharedInstance.currentGameState == GameState.gameOver) 
         {
             this.coinsLabel.text = GameManager.sharedInstance.CollectedMoney.ToString();
             this.pointsLabel.text = "PUNTOS: " + GameManager.sharedInstance.CollectedPoints.ToString();

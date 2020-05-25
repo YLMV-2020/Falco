@@ -43,7 +43,17 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SetGameState(GameState.inGame);
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        CameraFollow cameraFollow = camera.GetComponent<CameraFollow>();
+        cameraFollow.ResetCameraPosition();
+        if (PlayerController.sharedInstance.transform.position.x > 10)
+        {
+            LevelGenerator.sharedInstance.RemoveAllTheBlocks();
+            LevelGenerator.sharedInstance.GenerateIntialBlocks();
+        }
         PlayerController.sharedInstance.StartGame();
+        this.CollectedMoney = 0;
+        this.CollectedPoints = 0;
     }
     public void GameOver()
     {
@@ -52,6 +62,7 @@ public class GameManager : MonoBehaviour
     public void BackToMenu()
     {
         SetGameState(GameState.menu);
+        
     }
 
     public void ExitGame()

@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
     public static PlayerController sharedInstance;
 
     public GameObject weapon = null;
+    private Vector3 startPosition;
 
     private void Awake()
     {
         sharedInstance = this;
+        startPosition = this.transform.position;
     }
 
     void Start()
@@ -125,6 +127,8 @@ public class PlayerController : MonoBehaviour
         this.m_animator.SetBool("isWalk", false);
         this.m_animator.SetBool("isJump", false);
         this.m_animator.SetBool("isShoot", false);
+
+        this.transform.position = startPosition;
     }
 
     private void Walk(bool state)
@@ -149,6 +153,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
+        GameManager.sharedInstance.SetGameState(GameState.gameOver);
         Debug.Log("Muero");
     }
 

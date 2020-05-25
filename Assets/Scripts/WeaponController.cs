@@ -25,7 +25,7 @@ public class WeaponController : MonoBehaviour
 
     public void GenerateWeapons()
     {
-        int index = Random.Range(1, cantidadMax);
+        int index = Random.Range(0, cantidadMax);
 
         for (int i = 0; i < index; i++)
         {

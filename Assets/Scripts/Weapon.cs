@@ -50,6 +50,12 @@ public class Weapon : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyController.sharedInstance.RemoveEnemy(collision.gameObject.GetComponent<Enemy>()); 
+            Destroy(gameObject);
+        }
+
         if (!collision.gameObject.CompareTag("Player")) return;
 
         RemoveWeapon();
