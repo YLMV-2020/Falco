@@ -6,8 +6,7 @@ _Proyecto personal_
  
  ## Descripción 🚀
 
-_Juego en que una personaje dispara y destruye a los ogros, conforme obtenga más puntos la dificlutad va aumentando con la aparición de 
-más ogros más resistentes y mejores armas._
+_Juego en que una personaje dispara y destruye a los ogros, conforme obtenga más puntos la dificultad va aumentando con la aparición de ogros más resistentes y mejores armas._
 
 ## Construido con 🛠️
 
