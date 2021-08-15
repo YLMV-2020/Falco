@@ -1,4 +1,4 @@
-# Nave GDX
+# Taiga 
 
 _Proyecto personal_
 
