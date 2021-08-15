@@ -12,7 +12,7 @@ _Juego en que una personaje dispara y destruye a los ogros, conforme obtenga má
 
 * C# - Lenguaje de programación
 * [Visual Studio 2019](https://visualstudio.microsoft.com/es/downloads/) - IDE
-* [Unity](https://libgdx.com) - Motor de videojuego
+* [Unity](https://libgdx.com) - Motor de videojuegos
 
 ## Autor ✒️
 
