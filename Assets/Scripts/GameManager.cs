@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
     }
     public void BackToMenu()
     {
-        SetGameState(GameState.menu);
-        
+      
+        SetGameState(GameState.menu);   
     }
 
     public void ExitGame()
@@ -93,6 +93,9 @@ public class GameManager : MonoBehaviour
             menuCanvas.enabled = false;
             gameCanvas.enabled = false;
             gameOverCanvas.enabled = true;
+
+            PortalController.sharedInstance.RemoveAllPortal();
+            EnemyController.sharedInstance.RemoveClones();
         }
 
         this.currentGameState = newGameState;

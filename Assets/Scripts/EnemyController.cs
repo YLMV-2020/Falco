@@ -29,10 +29,26 @@ public class EnemyController : MonoBehaviour
     {
         int index = Random.Range(0, allTheEnemies.Count - 1);
         float x = Random.Range(UpdateLevel.sharedInstance.begin.transform.position.x, UpdateLevel.sharedInstance.end.transform.position.x - 2.0f);
-        Debug.Log("Okay");
         Enemy currentEnemy = (Enemy)Instantiate(allTheEnemies[index], new Vector3(x + 2.0f, 3.0f, 0.0f), allTheEnemies[index].transform.rotation);
         currentEnemy.transform.SetParent(this.transform, false);
         currentEnemies.Add(currentEnemy);
+    }
+
+    public void RemoveClones()
+    {
+        currentEnemies.Clear();
+        // Access the Transform component of the current object
+        Transform currentTransform = transform;
+
+        // Iterate through all the children of the current object
+        for (int i = 0; i < currentTransform.childCount; i++)
+        {
+            // Access the current child
+            Transform currentChild = currentTransform.GetChild(i);
+
+            // Destroy the current child
+            Destroy(currentChild.gameObject);
+        }
     }
 
     public void RemoveEnemy(Enemy enemy)

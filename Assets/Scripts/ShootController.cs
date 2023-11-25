@@ -16,5 +16,4 @@ public class ShootController : MonoBehaviour
     {
         return shootInstance[index];
     }
-
 }
