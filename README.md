@@ -1,6 +1,6 @@
 # Taiga 
 
-_"Taiga" es un juego sencillo donde los jugadores disparan para derribar ogros, acumulando puntos y monedas. Aunque la dificultad no aumenta, la acción y la diversión persisten._
+_Es un juego sencillo donde los jugadores disparan para derribar ogros, acumulando puntos y monedas. Aunque la dificultad no aumenta, la acción y la diversión persisten._
 
 ## Controles 🛠️
 
